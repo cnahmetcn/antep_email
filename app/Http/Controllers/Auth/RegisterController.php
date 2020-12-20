@@ -74,7 +74,7 @@ class RegisterController extends Controller
         $to_name=$data['name'];
         $to_mail=$data['email'];
         $body=[];
-        $mail_data= array(['body'=>$body]);
+        $mail_data= array('body'=>$body,'name'=>$to_name);
 
         Mail::send('email.register',$mail_data,function($message) use ($to_name,$to_mail){
             $message->to($to_mail,$to_name)->subject('Merhaba');
